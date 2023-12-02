@@ -23,9 +23,19 @@ var data = {
 	}
 }
 
+func open_link(url):
+	var os = OS.get_singleton()
+	if os and os.has_feature(OS.OS_FEATURE_EXEC):
+		os.shell_open(url)
+	else:
+		# Fallback option if OS feature is not available
+		print("Unable to open link:", url)
+
 func _pressed():
 	print("Save button pressed !!!")
 	saveGame()
+	#open_link("https://andertech.dk/")
+	OS.shell_open("https://andertech.dk/")
 
 func saveGame():
 	var file = File.new()

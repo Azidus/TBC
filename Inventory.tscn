@@ -49,7 +49,7 @@ valign = 1
 margin_left = 682.0
 margin_right = 1042.0
 margin_bottom = 53.0
-text = "  OPHÆNGSLISTE"
+text = "  OPHÆNGSLISTE (V0.6)"
 valign = 1
 
 [node name="saveBtn" type="Button" parent="."]
