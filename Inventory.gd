@@ -23,7 +23,7 @@ onready var listItem15 = $ScrollContainer/VBoxContainer/listItem15
 onready var sBtn = $saveBtn
 #onready var eq_slots = $EquipmentSlots
 #onready var load_data:Dictionary={}
-onready var load_data=[]
+onready var load_data = []
 onready var my_label = $Label
 
 var item_held = null
@@ -41,12 +41,40 @@ func getJsHash():
 		if web_hash:
 			print("Hash ", web_hash)
 			my_label.text = web_hash
+			return web_hash
 	else:
 		print("The JavaScript singleton is NOT available")
+		return ""
+		
+func getUrlParams(input_string):
+	#var input_string = "example?param1=value1&param2=value2&param3=value3"
+
+	# Find the position of the question mark
+	var question_mark_position = input_string.find("?")
+
+	if question_mark_position > -1:
+		# Extract the substring after the question mark
+		var params_string = input_string.substr(question_mark_position + 1)
+		
+		# Split the substring into a list using ampersand as the separator
+		var params_list = params_string.split("&")
+		
+		# Print the resulting list
+		print(params_list)
+		return params_list
+	else:
+		print("No question mark found in the input string.")
+		var empty_list = []
+		return empty_list
+
 
 func _ready():
-	getJsHash()
-	load_game()
+	var web_hash = ""
+	var params_list = []
+	web_hash = getJsHash()
+	params_list = getUrlParams(web_hash)
+	load_data = params_list
+	#load_game()
 	#print(load_data["breastplate"]["name"])
 	#pickup_item("3D00055")
 	#pickup_item("3D00056")
