@@ -31,11 +31,31 @@ func open_link(url):
 		# Fallback option if OS feature is not available
 		print("Unable to open link:", url)
 
+func getUrlWithParams(my_list):
+	# Given list
+	#var my_list = ["param1", "param2", "param3"]
+	
+	# Static string
+	var static_string = "https://www.andertech.dk/"
+	
+	# Create string starting with "?" and add list elements separated by "&"
+	var query_string = "?"
+	query_string += PoolStringArray(my_list).join("&")
+	
+	# Append the resulting string to the static string
+	var final_url = static_string + query_string
+	
+	#print("Final URL:", final_url) #debug.
+	return final_url
+
 func _pressed():
-	print("Save button pressed !!!")
-	saveGame()
+	#print("Save button pressed !!!") #debug.
+	#saveGame()
 	#open_link("https://andertech.dk/")
-	OS.shell_open("https://andertech.dk/")
+	#print(hangerList) #debug.
+	var url = ""
+	url = getUrlWithParams(hangerList)
+	OS.shell_open(url)
 
 func saveGame():
 	var file = File.new()

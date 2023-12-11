@@ -92,7 +92,7 @@ func _ready():
 	#pickup_item("3D00091")
 	#pickup_item("yomama")
 	for item in load_data:
-		pickup_item(item.to_lower())
+		pickup_item(item.to_upper())
 
 func _process(delta):
 	sBtn.text = "KURV (" + str(itemCnt) + ")"
