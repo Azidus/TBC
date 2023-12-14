@@ -61,6 +61,7 @@ func getUrlWithParams(my_list):
 	var query_string = "#?"
 	var page_string = "page=Cart&"
 	#query_string += PoolStringArray(my_list).join("&")
+	query_string += page_string
 	query_string += result_string
 	
 	# Append the resulting string to the static string
