@@ -42,7 +42,7 @@ script = ExtResource( 4 )
 [node name="Label" type="Label" parent="."]
 margin_right = 681.0
 margin_bottom = 54.0
-text = "  ATECH TOOLBOARD CUSTOMIZER GUI (V0.64)"
+text = "  ATECH TOOLBOARD CUSTOMIZER GUI (V0.65)"
 valign = 1
 
 [node name="Label2" type="Label" parent="."]

@@ -36,8 +36,8 @@ func getJsHash():
 	if OS.has_feature('JavaScript'):
 		print("JS available!")
 		#my_label.text = " helloJS" #debug.
-		#var web_hash = JavaScript.eval("window.location.hash")
-		var web_hash = JavaScript.eval("window.location.href")
+		var web_hash = JavaScript.eval("window.location.hash")
+		#var web_hash = JavaScript.eval("window.location.href")
 		if web_hash:
 			print("Hash ", web_hash)
 			#my_label.text = web_hash
