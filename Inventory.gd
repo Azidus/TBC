@@ -187,7 +187,7 @@ func pickup_item(item_id):
 	add_child(item)
 	itemCnt+=1
 	sBtn.hangerList.append(item_id)
-	print(sBtn.hangerList)
+	#print(sBtn.hangerList)
 	if !grid_bkpk.insert_item_at_first_available_spot(item):
 		item.queue_free()
 		return false

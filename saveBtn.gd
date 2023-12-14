@@ -34,13 +34,34 @@ func open_link(url):
 func getUrlWithParams(my_list):
 	# Given list
 	#var my_list = ["param1", "param2", "param3"]
+	var original_strings = my_list
+	var unique_strings = {}
+	# Count occurrences of each unique string
+	for string in original_strings:
+		if unique_strings.has(string):
+			unique_strings[string] += 1
+		else:
+			unique_strings[string] = 1
+	# Sort unique strings alphabetically
+	var sorted_keys = unique_strings.keys()
+	sorted_keys.sort()
+	var result_string = ""
+	# Construct new string with unique strings and their counts
+	for key in sorted_keys:
+		result_string += key + "=" + str(unique_strings[key]) + "&"
+	# Remove the last ampersand if present
+	if result_string.ends_with("&"):
+		result_string = result_string.substr(0, result_string.length() - 1)
+	#print("Resulting string:", result_string)
 	
 	# Static string
-	var static_string = "https://www.andertech.dk/"
+	var static_string = "https://uavcvqjflodeg6r2.anvil.app/VLLP4KHVNSV6ERKDEMMIB2K5/"
 	
 	# Create string starting with "?" and add list elements separated by "&"
-	var query_string = "?"
-	query_string += PoolStringArray(my_list).join("&")
+	var query_string = "#?"
+	var page_string = "page=Cart&"
+	#query_string += PoolStringArray(my_list).join("&")
+	query_string += result_string
 	
 	# Append the resulting string to the static string
 	var final_url = static_string + query_string
