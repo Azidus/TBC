@@ -3,52 +3,100 @@ extends Node
 const ICON_PATH = "res://sprites/"
 const ITEMS = {
 	"3D00054": {
-		"icon": ICON_PATH + "3D00054.png"
+		"name": "smallhook",
+		"icon": ICON_PATH + "3D00054.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00054.jpg",
+		"sortPriority": 0
 	},
 	"3D00055": {
-		"icon": ICON_PATH + "3D00055.png"
+		"name": "mediumhook",
+		"icon": ICON_PATH + "3D00055.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00055.jpg",
+		"sortPriority": 0
 	},
 	"3D00056": {
-		"icon": ICON_PATH + "3D00056.png"
+		"name": "largehook",
+		"icon": ICON_PATH + "3D00056.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00056.jpg",
+		"sortPriority": 0
 	},
 	"3D00057": {
-		"icon": ICON_PATH + "3D00057.png"
+		"name": "calliperholder",
+		"icon": ICON_PATH + "3D00057.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00057.jpg",
+		"sortPriority": 1
 	},
 	"3D00058": {
-		"icon": ICON_PATH + "3D00058.png"
+		"name": "doublehook",
+		"icon": ICON_PATH + "3D00058.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00058.jpg",
+		"sortPriority": 0
 	},
 	"3D00059": {
-		"icon": ICON_PATH + "3D00059.png"
+		"name": "screwdriverholder",
+		"icon": ICON_PATH + "3D00059.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00059.jpg",
+		"sortPriority": 1
 	},
 	"3D00060": {
-		"icon": ICON_PATH + "3D00060.png"
+		"name": "largestoragetray",
+		"icon": ICON_PATH + "3D00060.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00060.jpg",
+		"sortPriority": 1
 	},
 	"3D00061": {
-		"icon": ICON_PATH + "3D00061.png"
+		"name": "rulerholder",
+		"icon": ICON_PATH + "3D00061.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00061.jpg",
+		"sortPriority": 1
 	},
 	"3D00062": {
-		"icon": ICON_PATH + "3D00062.png"
+		"name": "narrowhook",
+		"icon": ICON_PATH + "3D00062.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00062.jpg",
+		"sortPriority": 0
 	},
 	"3D00063": {
-		"icon": ICON_PATH + "3D00063.png"
+		"name": "daaseholder",
+		"icon": ICON_PATH + "3D00063.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00063.jpg",
+		"sortPriority": 1
 	},
 	"3D00064": {
-		"icon": ICON_PATH + "3D00064.png"
+		"name": "unbracoholder",
+		"icon": ICON_PATH + "3D00064.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00064.jpg",
+		"sortPriority": 1
 	},
 	"3D00065": {
-		"icon": ICON_PATH + "3D00065.png"
+		"name": "multihook_s",
+		"icon": ICON_PATH + "3D00065.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00065.jpg",
+		"sortPriority": 0
 	},
 	"3D00089": {
-		"icon": ICON_PATH + "3D00089.png"
+		"name": "rulerholder_s",
+		"icon": ICON_PATH + "3D00089.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00089.jpg",
+		"sortPriority": 1
 	},
 	"3D00090": {
-		"icon": ICON_PATH + "3D00090.png"
+		"name": "multihook_m",
+		"icon": ICON_PATH + "3D00090.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00090.jpg",
+		"sortPriority": 0
 	},
 	"3D00091": {
-		"icon": ICON_PATH + "3D00091.png"
+		"name": "multihook_l",
+		"icon": ICON_PATH + "3D00091.png",
+		"icon_nobg": ICON_PATH + "nobg/" + "3D00091.jpg",
+		"sortPriority": 0
 	},
 	"error": {
-		"icon": ICON_PATH + "error2.png"
+		"name": "error",
+		"icon": ICON_PATH + "error2.png",
+		"icon_nobg":  ICON_PATH + "error2.png",
+		"sortPriority": 0
 	}
 }
 

@@ -81,8 +81,9 @@ func get_grid_size(item):
 func insert_item_at_first_available_spot(item):
 	for y in range(grid_height):
 		for x in range(grid_width):
-			if !grid[x][y]:
-				item.rect_global_position = rect_global_position + Vector2(x, y) * cell_size
+			if !grid[x][grid_height-y-1]:
+				item.rect_global_position = rect_global_position + Vector2(x, grid_height-y-1) * cell_size
 				if insert_item(item):
 					return true
+	print("Add extra board !")
 	return false
