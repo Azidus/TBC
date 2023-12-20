@@ -93,7 +93,7 @@ func _ready():
 	var web_hash = ""
 	var params_list = []
 	web_hash = getJsHash()
-	web_hash = "?3D00061=3;104;187&3D00057=1;77;252&3D00059=1;101;180&3D00058=2;107;320&3D00054=2;67;389&3D00062=2;99;234&3D00056=3;60;287"
+	#web_hash = "?3D00061=3;104;187&3D00057=1;77;252&3D00059=1;101;180&3D00058=2;107;320&3D00054=2;67;389&3D00062=2;99;234&3D00056=3;60;287"
 	params_list = getUrlParams(web_hash)
 	load_data = params_list
 	#load_game()
