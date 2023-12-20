@@ -260,8 +260,8 @@ func overLayImages(item_id, BG_size):
 		var image_fg = Image.new()  # Create Image for background image
 		#image_fg.texture = load(ItemDb.get_item(item_id)["icon"])
 		image_fg.load(imagePath)
-		var maxWidth = ceil(BG_size[0] / grid_bkpk.cell_size) * grid_bkpk.cell_size
-		var maxHeight = ceil(BG_size[1] / grid_bkpk.cell_size) * grid_bkpk.cell_size
+		var maxWidth = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
+		var maxHeight = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
 		var color = [0,0,0,0]
 		var vectorX = 0
 		var vectorY = 0
@@ -272,7 +272,7 @@ func overLayImages(item_id, BG_size):
 		var BG_texture = createTexture(maxWidth, maxHeight, color)
 		# Blit the foreground image onto the background texture
 		BG_texture.lock()
-		var centerX = int((maxWidth/2)-(image_fg.get_width()/2))
+		var centerX = int((max(maxWidth,image_fg.get_width())/2)-(min(maxWidth,image_fg.get_width())/2))
 		var yOffset = 11
 		if vectorY > 0:
 			yOffset *= -1
