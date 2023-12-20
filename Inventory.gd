@@ -61,7 +61,7 @@ func splitIntoItemDicts(input_string):
 		result_dict["qty"] = values[0]
 		result_dict["maxwidth"] = values[1]
 		result_dict["maxheight"] = values[2]
-		print(result_dict)
+		#print(result_dict)
 		return result_dict
 				
 func getUrlParams(input_string):
@@ -93,14 +93,14 @@ func _ready():
 	var web_hash = ""
 	var params_list = []
 	web_hash = getJsHash()
-	#web_hash = "?3D00054=1;136;136&3D00058=2;136;136"
+	web_hash = "?3D00061=3;104;187&3D00057=1;77;252&3D00059=1;101;180&3D00058=2;107;320&3D00054=2;67;389&3D00062=2;99;234&3D00056=3;60;287"
 	params_list = getUrlParams(web_hash)
 	load_data = params_list
 	#load_game()
 	#print(load_data["breastplate"]["name"])
 	for item in load_data:
 		for i in range(item['qty']):
-			pickup_item(item['id'].to_upper(), [int(item['maxwidth']), int(item['maxheight'])])
+			pickup_item(item['id'].to_upper(), [item['maxwidth'].to_int(), item['maxheight'].to_int()])
 
 func _process(delta):
 	sBtn.text = "KURV (" + str(itemCnt) + ")"
@@ -260,8 +260,8 @@ func overLayImages(item_id, BG_size):
 		var image_fg = Image.new()  # Create Image for background image
 		#image_fg.texture = load(ItemDb.get_item(item_id)["icon"])
 		image_fg.load(imagePath)
-		var maxWidth = ceil(BG_size[0] / 34)
-		var maxHeight = ceil(BG_size[1] / 34)
+		var maxWidth = ceil(BG_size[0] / grid_bkpk.cell_size) * grid_bkpk.cell_size
+		var maxHeight = ceil(BG_size[1] / grid_bkpk.cell_size) * grid_bkpk.cell_size
 		var color = [0,0,0,0]
 		var vectorX = 0
 		var vectorY = 0
