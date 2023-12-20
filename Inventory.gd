@@ -260,8 +260,8 @@ func overLayImages(item_id, BG_size):
 		var image_fg = Image.new()  # Create Image for background image
 		#image_fg.texture = load(ItemDb.get_item(item_id)["icon"])
 		image_fg.load(imagePath)
-		for dim in BG_size:
-			dim = ceil(dim / 34)
+		var maxWidth = ceil(BG_size[0] / 34)
+		var maxHeight = ceil(BG_size[1] / 34)
 		var color = [0,0,0,0]
 		var vectorX = 0
 		var vectorY = 0
@@ -269,14 +269,14 @@ func overLayImages(item_id, BG_size):
 		color = returnArray[0]
 		vectorX = returnArray[1]
 		vectorY = returnArray[2]
-		var BG_texture = createTexture(BG_size[0], BG_size[1], color)
+		var BG_texture = createTexture(maxWidth, maxHeight, color)
 		# Blit the foreground image onto the background texture
 		BG_texture.lock()
-		var centerX = int((BG_size[0]/2)-(image_fg.get_width()/2))
+		var centerX = int((maxWidth/2)-(image_fg.get_width()/2))
 		var yOffset = 11
 		if vectorY > 0:
 			yOffset *= -1
-		var posY = vectorY*(BG_size[1]-image_fg.get_height())+yOffset
+		var posY = vectorY*(maxHeight-image_fg.get_height())+yOffset
 		BG_texture.blit_rect(image_fg, Rect2(0, 0, image_fg.get_width(), image_fg.get_height()), Vector2(centerX, posY))
 		#BG_texture.blit_rect(image_fg, Rect2(0, 0, BG_size[0], BG_size[1]), Vector2(0, 0))
 		BG_texture.unlock()	
