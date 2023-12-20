@@ -256,10 +256,14 @@ func createTexture(width,height,color=[0.5,1,0.8,1], transparency=false):
 
 func overLayImages(item_id, BG_size):
 	if BG_size[0]>0 and BG_size[1]>0:
-		var imagePath = ItemDb.get_item(item_id)["icon_nobg"]
-		var image_fg = Image.new()  # Create Image for background image
+		#var imagePath = ItemDb.get_item(item_id)["icon_nobg"]
+		#var image_fg = Image.new()  # Create Image for background image
 		#image_fg.texture = load(ItemDb.get_item(item_id)["icon"])
-		image_fg.load(imagePath)
+		#image_fg.load(imagePath)
+		var item = item_base.instance()
+		item.texture = load(ItemDb.get_item(item_id)["icon_nobg"])
+		var image_fg: Image = item.texture.get_data()
+		
 		var maxWidth = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
 		var maxHeight = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
 		var color = [0,0,0,0]
