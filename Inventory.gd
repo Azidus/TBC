@@ -53,7 +53,7 @@ func splitIntoItemDicts(input_string):
 	var result_dict = {}
 	
 	if parts.size() == 2:
-		var key = parts[0].strip("'")  # Extracting and cleaning the key.
+		var key = parts[0]#.strip("'")  # Extracting and cleaning the key.
 		var values = parts[1].split(";")  # Splitting values by semicolon.
 		
 		# Constructing the dictionary with specific key-value pairs.
@@ -61,7 +61,7 @@ func splitIntoItemDicts(input_string):
 		result_dict["qty"] = values[0]
 		result_dict["maxwidth"] = values[1]
 		result_dict["maxheight"] = values[2]
-		
+		print(result_dict)
 		return result_dict
 				
 func getUrlParams(input_string):
@@ -93,6 +93,7 @@ func _ready():
 	var web_hash = ""
 	var params_list = []
 	web_hash = getJsHash()
+	#web_hash = "?3D00054=1;136;136&3D00058=2;136;136"
 	params_list = getUrlParams(web_hash)
 	load_data = params_list
 	#load_game()
