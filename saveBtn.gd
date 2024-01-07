@@ -78,6 +78,9 @@ func _pressed():
 	var url = ""
 	url = getUrlWithParams(hangerList)
 	OS.shell_open(url)
+	#TODO:: Reset Prolly wont work with url params - send default url or global var?
+	#get_tree().reload_current_scene() 
+	#get_tree().quit()
 
 func saveGame():
 	var file = File.new()

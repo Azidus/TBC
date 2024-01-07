@@ -31,6 +31,7 @@ var item_offset = Vector2()
 var last_container = null
 var last_pos = Vector2()
 var itemCnt = 0
+var rng = RandomNumberGenerator.new()
 
 func getJsHash():
 	if OS.has_feature('JavaScript'):
@@ -93,11 +94,12 @@ func _ready():
 	var web_hash = ""
 	var params_list = []
 	web_hash = getJsHash()
-	#web_hash = "?3D00061=3;104;187&3D00057=1;77;252&3D00059=1;101;180&3D00058=2;107;320&3D00054=2;67;389&3D00062=2;99;234&3D00056=3;60;287"
+	#web_hash = "?3D00057=1;77;252&3D00059=1;101;180&3D00061=3;104;187&3D00058=2;107;320&3D00054=2;67;389&3D00062=2;99;234&3D00056=3;60;287"
 	params_list = getUrlParams(web_hash)
 	load_data = params_list
 	#load_game()
 	#print(load_data["breastplate"]["name"])
+	#var my_random_number = rng.randf_range(-1.0, 15)
 	for item in load_data:
 		for i in range(item['qty']):
 			pickup_item(item['id'].to_upper(), [item['maxwidth'].to_int(), item['maxheight'].to_int()])
@@ -193,7 +195,9 @@ func pickup_item(item_id, boxDim):
 	var item = item_base.instance()
 	item.set_meta("id", item_id)
 	#var rectText = createTexture(34, 68)
-	var rectText = overLayImages(item_id, [boxDim[0],boxDim[1]])
+	var width = boxDim[0]
+	var height = boxDim[1]
+	var rectText = overLayImages(item_id, [width,height])
 	#item.texture = load(ItemDb.get_item(item_id)["icon"])
 	item.texture = rectText
 	#item.modulate.a = 0.5
@@ -265,7 +269,7 @@ func overLayImages(item_id, BG_size):
 		var image_fg: Image = item.texture.get_data()
 		
 		var maxWidth = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
-		var maxHeight = ceil(float(BG_size[0]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
+		var maxHeight = ceil(float(BG_size[1]) / grid_bkpk.cell_size) * grid_bkpk.cell_size
 		var color = [0,0,0,0]
 		var vectorX = 0
 		var vectorY = 0
